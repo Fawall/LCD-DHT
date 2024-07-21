@@ -18,6 +18,7 @@ namespace webapi.Models
        }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+    
     }
 
 
