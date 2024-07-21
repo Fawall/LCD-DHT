@@ -1,5 +1,8 @@
 using webapi.Models;
 using Microsoft.EntityFrameworkCore;
+using webapi.Repository.Interfaces;
+using webapi.Repository;
+using webapi.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +14,9 @@ builder.Services.AddEndpointsApiExplorer();
 
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+
+builder.Services.AddScoped<IEnviroment, EnviromentRepository>();
 builder.Services.AddDbContext<ProjectDBContext>(options => options.UseSqlServer(connectionString));
 
 builder.Services.AddSwaggerGen();
